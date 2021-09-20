@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+    </div>
+  </nav>
+
+  <main role="main">
+    <div class="cont">
+      <div class="text-center p-4">
+        <h2>Descripción del artículo</h2>
+        <p class="lead">Aquí encontrarás toda la información del artículo seleccionado.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <dl>
+            <dt>Nombre:</dt>
+            <dd>
+              <p id="productName"></p>
+            </dd>
+            <dt>Descripción:</dt>
+            <dd>
+              <p id="productDescription"></p>
+            </dd>
+            <dt>Costo:</dt>
+            <dd>
+              <p id="productCost"></p>
+            </dd>
+            <dt>Moneda:</dt>
+            <dd>
+              <p id="productCurrency"></p>
+            </dd>
+            <dt>Categoría:</dt>
+            <dd>
+              <p id="productCategory"></p>
+            </dd>
+          </dl>
+        </div>
+        <div class="col-sm-3 col-md-6 ">
+          <dl>
+            <dt>Imágenes ilustrativas del producto: </dt></br>
+            <dd>
+              <p id="productImages"></p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm">
+          <h5>Comentarios</h5>
+          <div id="users"></div>
+        </div>
+        <div class="col-sm">
+          <form id="commentForm" onsubmit="addComment(event)">
+            <h5>Ingresar comentario:</h5>
+            <p><b>Usuario:</b></p>
+            <p id="userCom"></p>
+            <p><b>Comentario:</b></p>
+            <textarea id="opinion" name="comment" placeholder="Ingrese su comentario"></textarea><br>
+            <p id="productRating"><b>Calificación:</b></p>
+            <button type="button" class="btn btn-danger btn-number"
+              onclick="take_star(num_stars);show_rating(num_stars)">-</button>
+            <div id="stars_rating"></div>
+            <button type="button" class="btn btn-success btn-number"
+              onclick="add_star(num_stars);show_rating(num_stars)">+</button>
+            <input type="submit" value="Enviar" id="commentBTN">
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
+</body>
+
+</html>

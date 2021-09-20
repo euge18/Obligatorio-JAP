@@ -40,8 +40,38 @@ var getJSONData = function(url){
     });
 }
 
+if (!window.location.href.endsWith('login.html') && //si href termina con login.html, no redirigimos porque ya estamos en el mismo.
+  !(sessionStorage.getItem('logueado') === 'true')) { //si el usuario no está logueado redirigir a login.html.
+  window.location.href = "login.html"; //redirigir a login.html.
+};
+
+function logout(e) {
+  sessionStorage.removeItem('logueado');
+  localStorage.removeItem("nombre_usuario");
+  window.location.href = 'index.html';
+}
+
+function dropdownField() {
+  //Guardar en sessioStorage el nombre del usuario
+  var username = localStorage.getItem("nombre_usuario");
+
+  let htmlContentToAppend = `
+    <div class="btn group">
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" 
+    aria-expanded="false">` + username + `</div>`;
+document.getElementById("listField").innerHTML = htmlContentToAppend;
+    
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  if (sessionStorage.getItem('logueado')) {
+    let dropField = document.createElement("div");
+    dropField.id = "listField";
+    document.querySelector("nav.site-header").lastElementChild.appendChild(dropField);
+    dropdownField();
+    document.querySelector("body > nav > div > a:nth-child(5)").remove();
+  }
 });

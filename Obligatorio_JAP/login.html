@@ -39,25 +39,22 @@
 
 <body class="text-center">
   
-  <form action="" method="post">
-
-    <img src="img/login.png">
-  
-    <div class="container">
-      <label for="usuario" ><b>Nombre de usuario</b></label>
-      <input type="text" placeholder="Ingrese nombre de usuario" name="usuario" required id="nombreUsu">
-  
-      <label for="password" ><b>Contraseña</b></label>
-      <input type="password" placeholder="Ingrese contraseña" name="password" required id="pass">
-  
-      <input type="button" id="btnLogin" value="Iniciar sesion" onclick="validar()">
+  <div class="container p-5">
+    <div id="contFORM" role="alert">
+      <img src="img/login.png" width="500">
+      <h4 class="alert-heading">Bienvenido a e-MERCADO</h4>
+      <p>Por favor ingresa tu usuario para continuar</p>
+      <hr>
+      <form id="loginFORM" onsubmit="submitEvenHandler(evento)">
+        <p class="mb-0">Formulario de Ingreso:</p><br>
+        <input type="text" placeholder="&#128100; USUARIO" name="usuario" id="nombre_usuario" maxlength="10" required><br><br>
+        <input type="password" placeholder="&#9919; CONTRASEÑA" name="password" id="contrasena" minlength="7" required><br><br>
+        <p><input type="checkbox" name="recordar">Recordarme</p>
+        <input class="BTN" type="submit" value="Ingresar">
+        <input class="BTN" type="reset" value="Cancelar">
+      </form>
     </div>
-  
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancelar</button>
-      <span class="password"><a href="#">Olvidaste la contraseña?</a></span>
-    </div>
-  </form>
+  </div>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
