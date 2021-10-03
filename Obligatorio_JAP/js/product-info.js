@@ -1,4 +1,52 @@
 var num_stars = 1;
+var product = {};
+
+//Mostrar imágenes del producto en un carrusel.
+function showImagesGallery(array) {
+  let htmlContentToAppend = "";
+
+  for (let i = 0; i < array.length; i++) {
+    if (i == 0) {
+      htmlContentToAppend += ` 
+          <div class="carousel-item active">
+              <img class="d-block w-100" src="` + array[i] + `" > 
+          </div> 
+          `
+    } else {
+      htmlContentToAppend += `
+          <div class="carousel-item">
+              <img class="d-block w-100" src="` + array[i] + `">
+          </div>
+          `
+    }
+  }
+  document.getElementById("theCarousel").innerHTML = htmlContentToAppend;
+}
+
+//Muestra los productos relacionados
+function related_products(similarProduct) {
+
+  getJSONData(PRODUCTS_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      let htmlContentToAppend = "";
+      for (let i = 0; i < similarProduct.length; i++) {
+        let product = resultObj.data[similarProduct[i]];
+        htmlContentToAppend += ` 
+          <a href = "product-info.html?product=` + product.name + `" class="list-group-item-action col-6">
+          </br>
+          </br>
+          <h4><b> ` + product.name + ` </b></h4>
+          <p><b> ` + product.currency + ` ` + product.cost + ` </b></p>
+          <img  src=" ` + product.imgSrc + `" class="img-fluid img-thumbnail">
+          </a>
+      `
+      }
+
+      document.getElementById('related_products').innerHTML = htmlContentToAppend;
+    };
+
+  });
+}
   
   //------ COMENTARIOS (DEL USUARIO Y PRECARGADOS)------
   // Mostar el nombre del usuario actual en el formulario de nuevo comentario.
@@ -61,6 +109,7 @@ var num_stars = 1;
     var today = new Date();
     var todayDate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     comment = `
+            <img src="img/usuario_predeterminado.png" alt="Usuario" style="float: left; padding: 10px; width: 90px;">
             <h4><b>Su comentario:</b></h4>
             <p><b>Usuario: ` + userComment + `</b></p>
             <p><b>Comentario:</b> ` + opinion + `</p>
@@ -85,62 +134,57 @@ var num_stars = 1;
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-          product = resultObj.data;
-    
-          let productName = document.getElementById("productName");
-          let productDescription = document.getElementById("productDescription");
-          let productCost = document.getElementById("productCost");
-          let productCurrency = document.getElementById("productCurrency");
-          let productCategory = document.getElementById("productCategory");
-          let productImages = document.getElementById("productImages");
-    
-          let paramsURL = new URLSearchParams(location.search);
-          let currentProduct = paramsURL.get('product');
-    
-          productName.innerHTML = currentProduct;
-          productDescription.innerHTML = product.description;
-          productCost.innerHTML = product.cost;
-          productCurrency.innerHTML = product.currency;
-          productCategory.innerHTML = product.category;
-    
-          let img = [product.images];
-          let imgM = "";
-          for (let a = 0; a < img.length; a++) {
-             imgM += "<img src='" + img[a] +"' width='250'><br>";
-          }
-          productImages.innerHTML = imgM;
-          
-          related_products(resultObj.data.relatedProducts);
-        }
-    
-      });
-    
-      //Mostrar los comentarios que están en el JSON
-      getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-          product = resultObj.data;
-          let htmlContentToAppend = "";
-    
-          for (let i = 0; i < product.length; i++) {
-            let comment = product[i];
-    
-            htmlContentToAppend += `
-                     
-                  <img src="img/hablar.png" alt="Usuario" style="float: left; padding: 10px;">
-                  <p><b>Usuario: ` + comment.user + `:</b></p>
-                  <p><b>Comentario:</b> ` + comment.description + `</p>
-                  <p><b>Calificación:</b> ` + comment.score + `  <i class="fas fa-star"></i></p>
-                  <p><b>Fecha:</b> ` + comment.dateTime + `</p>
-                 <hr>
-                `
-    
-            stars_score();
-            document.getElementById("users").innerHTML = htmlContentToAppend;
-    
-          }
-        }
-      });
+document.addEventListener("DOMContentLoaded", function (e) {
+  getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      product = resultObj.data;
+
+      let productName = document.getElementById("productName");
+      let productDescription = document.getElementById("productDescription");
+      let productCost = document.getElementById("productCost");
+      let productCurrency = document.getElementById("productCurrency");
+      let productCategory = document.getElementById("productCategory");
+
+      let paramsURL = new URLSearchParams(location.search);
+      let currentProduct = paramsURL.get('product');
+
+      productName.innerHTML = currentProduct;
+      productDescription.innerHTML = product.description;
+      productCost.innerHTML = product.cost;
+      productCurrency.innerHTML = product.currency;
+      productCategory.innerHTML = product.category;
+
+      showImagesGallery(product.images);
+      related_products(resultObj.data.relatedProducts);
+    }
+
+  });
+
+  //Mostrar los comentarios que están en el JSON
+  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      product = resultObj.data;
+      let htmlContentToAppend = "";
+
+      for (let i = 0; i < product.length; i++) {
+        let comment = product[i];
+
+        htmlContentToAppend += `
+                 
+              <img src="img/usuario_predeterminado.png" alt="Usuario" style="float: left; padding: 10px; width: 90px;">
+              <p><b>Usuario: ` + comment.user + `:</b></p>
+              <p><b>Comentario:</b> ` + comment.description + `</p>
+              <p><b>Calificación:</b> ` + comment.score + `  <i class="fas fa-star"></i></p>
+              <p><b>Fecha:</b> ` + comment.dateTime + `</p>
+             <hr>
+            `
+
+        stars_score();
+        document.getElementById("users").innerHTML = htmlContentToAppend;
+
+      }
+    }
+  });
+
+
 });

@@ -58,9 +58,16 @@ function dropdownField() {
   let htmlContentToAppend = `
     <div class="btn group">
     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" 
-    aria-expanded="false">` + username + `</div>`;
-document.getElementById("listField").innerHTML = htmlContentToAppend;
-    
+    aria-expanded="false">` + username + ` </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+        <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+        <a class="dropdown-item" onclick="logout()" href="#">Cerrar Sesión</a>
+      </div>
+    </div>
+    `;
+  document.getElementById("btnUsu").innerHTML = htmlContentToAppend;
+
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -68,10 +75,6 @@ document.getElementById("listField").innerHTML = htmlContentToAppend;
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
   if (sessionStorage.getItem('logueado')) {
-    let dropField = document.createElement("div");
-    dropField.id = "listField";
-    document.querySelector("nav.site-header").lastElementChild.appendChild(dropField);
     dropdownField();
-    document.querySelector("body > nav > div > a:nth-child(5)").remove();
   }
 });
