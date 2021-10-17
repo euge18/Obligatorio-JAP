@@ -1,0 +1,80 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+
+div#cont {
+    background-color: rgba(126, 233, 144, 0.37);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+
+img#carrito {
+    margin-right: 5%;
+    float: left;
+}
+
+img#imgProd {
+    margin-right: 5%;
+    float: right;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
+}
+
+h5 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+div#almostTotal {
+    padding: 2%;
+    text-align: center;
+    background-color: rgb(185, 179, 182);
+    margin-bottom: 5%;
+
+}
+
+div#totalField {
+    text-align: center;
+    padding: 2%;
+    background-color: rgb(165, 159, 162);
+    border: 5px solid rgb(70, 101, 47);
+}
+
+div#botonPago {
+    text-align: center;
+}
+
+div#flags {
+    padding-top: 35%;
+}
+
+input[type="number"] {
+    width: 70px;
+}
+
+.BTN {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 13%;
+    background-color: rgb(154, 203, 86);
+    border-color: rgb(42, 71, 1);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.41);
+
+}
