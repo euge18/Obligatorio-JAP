@@ -27,10 +27,12 @@
         font-size: 3.5rem;
       }
     }
+    
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/my_profile.css" rel="stylesheet">
 </head>
 
 <body>
@@ -57,14 +59,39 @@
     </div>
   </nav>
   
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container fluid">
+    <div class="">
+        <h5 class="">SU PERFIL DE USUARIO:</h5>
+        <img height="100px" width="100px" id="imagen" src="https://i.ibb.co/zNsTvRK/generic-user.png">
+      </div>
+    <div class="row">
+      <div id="userNewData">
+      </div>
+      <div id="userDataEmptyForm" class="col">
+       <p><b>Nombre:</b></p>
+        <p id="name"></p>
+        <p><b>Edad:</b></p>
+        <p id="age"></p>
+        <p><b>Email:</b></p>
+        <p id="email"></p>
+        <p><b>Teléfono de contacto:</b></p>
+        <p id="phone"></p>
+      </div>
+      <div class="col" id="editProfileField"></div>
     </div>
+    <div>
+      <input type="image" src="img/recargar.png" title="Recargar" id="removeData" onclick="removeUserData(), showUserDataUpd()">
+    </div>
+    <hr>
+    <div class="col">
+      <h5 class="">EDITAR PERFIL:</h5>
+      <img src="img/editar.png" alt="editar perfil de usuario">
+      <p><b>Si desea editar su perfil haga click en el botón de editar</b></p>
+      <button type="submit" class="BTN" id="editProfileBTN">Editar perfil</button>
+    </div>
+    <hr>
   </div>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

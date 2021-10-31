@@ -28,7 +28,9 @@ function showProductsList(){
                         <h4 class="card-title"><b>`+ product.name +`</b></h4>
                         <p><b>`+ product.currency + ` ` + product.cost + `</b></p>
                         <p>` + product.description + `</p>
-                        <small class="text-muted">` + product.soldCount + ` artículos vendidos</small>
+                        <div class="card-footer">
+                            <small class="text-muted">` + product.soldCount + ` artículos vendidos</small>
+                        </div>
                     </div>
                 </div>
                 </a>

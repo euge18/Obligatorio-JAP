@@ -15,6 +15,46 @@
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
+<style>
+  
+  div#stars_rating {
+    float: left;
+    margin-right: 3%;
+  }
+
+  #commentBTN {
+    float: right;
+  }
+
+  form {
+    text-align: left;
+    width: 40%;
+    margin-left: 5%;
+    padding-left: 5%;
+    padding: 3%;
+    background-color: rgb(182, 179, 180);
+    border: 5px solid  rgb(207, 63, 63);
+    width: 470px;
+  }
+
+  h5 {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  h5 {
+    font-size: x-large;
+  }
+
+  h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+</style>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark site-header">
     <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +152,7 @@
             <p><b>Usuario:</b></p>
             <p id="userCom"></p>
             <p><b>Comentario:</b></p>
-            <textarea id="opinion" name="comment" placeholder="Ingrese su comentario"></textarea><br>
+            <textarea id="opinion" name="comment" placeholder="Ingrese su comentario" rows="5" cols="50"></textarea><br>
             <p id="productRating"><b>Calificación:</b></p>
             <button type="button" class="btn btn-danger btn-number"
               onclick="take_star(num_stars);show_rating(num_stars)">-</button>
