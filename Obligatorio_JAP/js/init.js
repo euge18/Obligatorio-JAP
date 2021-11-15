@@ -49,7 +49,7 @@ if (!window.location.href.endsWith('login.html') && //si href termina con login.
 function logout(e) {
   sessionStorage.removeItem('logueado');
   localStorage.removeItem("nombre_usuario");
-  window.location.href = 'index.html';
+  window.location.href = 'home.html';
 }
 
 function dropdownField() {

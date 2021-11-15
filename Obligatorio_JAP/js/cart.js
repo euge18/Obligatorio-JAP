@@ -1,5 +1,13 @@
 var  cart = [];
 
+// Eliminar producto 
+function eliminarArticulo(indice) {
+    if (cart.length > 0) {
+        cart.splice(indice, 1);
+        showCart(cart);
+    }
+}
+
 // Mostar el carrito con dos artíclos pre-cargados.
 function showCart(array) {
 
@@ -17,6 +25,7 @@ function showCart(array) {
                     <p><b>Precio unitario:</b> ` + article.unitCost + `</p>
                     <p><b>Moneda:</b> ` + article.currency + `</p>
                     <p><b> Subtotal: </b><span class="subTotal"></span></p>
+                    <td><button class="btn btn-danger" onclick="eliminarArticulo(`+ i +`);">Eliminar</button></td>
                     <hr>
                     </div>
                     </div>
@@ -69,11 +78,22 @@ function subtotalCost() {
 
         finalTotal += result2;
     
-        
     }
     document.getElementById("casiTotal").innerHTML = almostTotal;// Agrega el total al html.
     document.getElementById("finalTotal").innerHTML = finalTotal;
     
+}
+
+//Validacion direccion y redirigir home.html
+function ok() {
+    let pais = document.getElementById("pais").value;
+    let calle = document.getElementById("calle").value;
+    let numero = document.getElementById("numero").value;
+    let esquina = document.getElementById("esquina").value;
+
+    if (pais != '' && calle != '' && numero != '' && esquina != '') {
+        location.href = "home.html";
+    }
 }
 
 
@@ -99,24 +119,65 @@ document.addEventListener("DOMContentLoaded", function (e) {
             });
         
         }
-
-        document.getElementById("cardPayment").addEventListener("click", function () {
-            document.getElementById("accountNum").removeAttribute("required");
-            document.getElementById("cardExpDate").setAttribute("required", "");
-            document.getElementById("cardCVV").setAttribute("required", "");
-            document.getElementById("cardNum").setAttribute("required", "");
-           
-            
-        });
-        
-        document.getElementById("transferPayment").addEventListener("click", function () {
-            document.getElementById("cardExpDate").removeAttribute("required");
-            document.getElementById("cardCVV").removeAttribute("required");
-            document.getElementById("cardNum").removeAttribute("required");
-            document.getElementById("accountNum").setAttribute("required", "");
-            
-        });
-
     
     });
+
+    document.getElementById('formaDePago').addEventListener('change', function () {
+
+        let metodoPago = document.getElementById('formaDePago').value;
+        let div = document.getElementById('div-formaDePago');
+
+        if (metodoPago == 'transferencia') {
+            div.innerHTML = `
+                <div id="transferencia">
+                    <div class="form-group">
+                        <select class="form-control transferencia" required>
+                            <option>BROU</option>
+                            <option>Santander</option>
+                            <option>Itau</option>
+                            <option>BBVA</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control tarjeta" placeholder="Nombre del titular" required>
+                        <div class="invalid-feedback">
+                            Ingrese el nombre del titular por favor
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control tarjeta" placeholder="Número de cuenta" pattern="[0-9]+" required>
+                        <div class="invalid-feedback">
+                            Ingrese el número por favor
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (metodoPago == 'tarjeta') {
+            div.innerHTML = `
+            <div id="tarjeta">
+                <div class="form-group">
+                    <input type="text" class="form-control tarjeta"
+                        placeholder="Numero de tarjeta (sin espacios)" pattern="[0-9]{16}" required>
+                    <div class="invalid-feedback">
+                        Ingrese su numero de tarjeta por favor
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control tarjeta" placeholder="Vencimiento (MM/YYYY)"
+                        pattern="[0-9]{2}/[0-9]{4}" required>
+                    <div class="invalid-feedback">
+                        Ingrese el vencimiento de su tarjeta por favor
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control tarjeta" placeholder="Código de seguridad" required>
+                    <div class="invalid-feedback">
+                        Ingrese el codigo de seguridad de su tarjeta por favor
+                    </div>
+                </div>
+            </div>
+        `;
+        }
+    });
+
 });
