@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<style>
+  
+  div#stars_rating {
+    float: left;
+    margin-right: 3%;
+  }
+
+  #commentBTN {
+    float: right;
+  }
+
+  form {
+    text-align: left;
+    width: 40%;
+    margin-left: 5%;
+    padding-left: 5%;
+    padding: 3%;
+    background-color: rgb(182, 179, 180);
+    border: 5px solid  rgb(207, 63, 63);
+    width: 470px;
+  }
+
+  h5 {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  h5 {
+    font-size: x-large;
+  }
+
+  h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark site-header">
+    <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav container justify-content-between">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="products.html">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+        <li id="btnUsu"></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main">
+    <div class="cont">
+      <div class="text-center p-4">
+        <h2>Descripción del artículo</h2>
+        <p class="lead">Aquí encontrarás toda la información del artículo seleccionado.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <dl>
+            <dt>Nombre:</dt>
+            <dd>
+              <p id="productName"></p>
+            </dd>
+            <dt>Descripción:</dt>
+            <dd>
+              <p id="productDescription"></p>
+            </dd>
+            <dt>Costo:</dt>
+            <dd>
+              <p id="productCost"></p>
+            </dd>
+            <dt>Moneda:</dt>
+            <dd>
+              <p id="productCurrency"></p>
+            </dd>
+            <dt>Categoría:</dt>
+            <dd>
+              <p id="productCategory"></p>
+            </dd>
+          </dl>
+        </div>
+        <div class="col-sm-3 col-md-6 ">
+          <dl>
+            <dt>Imágenes ilustrativas del producto: </dt></br>
+            <dd>
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" id="theCarousel"></div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <hr>
+      <div class="col-sm-9 col-md-6">
+        <dl>
+          <dt>También te puede interesar: </dt>
+          <dd>
+            <div class="row" id="related_products"></div>
+          </dd>
+        </dl>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm">
+          <h5>Comentarios</h5>
+          <div id="users"></div>
+        </div>
+        <div class="col-sm">
+          <form id="commentForm" onsubmit="addComment(event)">
+            <h5>Ingresar comentario:</h5>
+            <p><b>Usuario:</b></p>
+            <p id="userCom"></p>
+            <p><b>Comentario:</b></p>
+            <textarea id="opinion" name="comment" placeholder="Ingrese su comentario" rows="5" cols="50"></textarea><br>
+            <p id="productRating"><b>Calificación:</b></p>
+            <button type="button" class="btn btn-danger btn-number"
+              onclick="take_star(num_stars);show_rating(num_stars)">-</button>
+            <div id="stars_rating"></div>
+            <button type="button" class="btn btn-success btn-number"
+              onclick="add_star(num_stars);show_rating(num_stars)">+</button>
+            <input type="submit" value="Enviar" id="commentBTN">
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
+</body>
+
+</html>

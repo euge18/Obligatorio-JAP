@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/my_profile.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark site-header">
+    <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav container justify-content-between">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+        <li id="btnUsu"></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container fluid">
+    <div class="">
+        <h5 class="">SU PERFIL DE USUARIO:</h5>
+        <img height="100px" width="100px" id="imagen" src="https://i.ibb.co/zNsTvRK/generic-user.png">
+      </div>
+    <div class="row">
+      <div id="userNewData">
+      </div>
+      <div id="userDataEmptyForm" class="col">
+       <p><b>Nombre:</b></p>
+        <p id="name"></p>
+        <p><b>Edad:</b></p>
+        <p id="age"></p>
+        <p><b>Email:</b></p>
+        <p id="email"></p>
+        <p><b>Teléfono de contacto:</b></p>
+        <p id="phone"></p>
+      </div>
+      <div class="col" id="editProfileField"></div>
+    </div>
+    <div>
+      <input type="image" src="img/recargar.png" title="Recargar" id="removeData" onclick="removeUserData(), showUserDataUpd()">
+    </div>
+    <hr>
+    <div class="col">
+      <h5 class="">EDITAR PERFIL:</h5>
+      <img src="img/editar.png" alt="editar perfil de usuario">
+      <p><b>Si desea editar su perfil haga click en el botón de editar</b></p>
+      <button type="submit" class="BTN" id="editProfileBTN">Editar perfil</button>
+    </div>
+    <hr>
+  </div>
+
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div class="alert fade alert-success" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/my-profile.js"></script>
+</body>
+
+</html>

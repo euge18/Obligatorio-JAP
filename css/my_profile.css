@@ -1,0 +1,85 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+body {
+    background-color: rgba(172, 180, 173, 0.37);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+h5.fillIt {
+    text-align: center;
+}
+
+h5 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    margin-top: 5%;
+
+}
+
+img {
+    float: left;
+}
+
+.BTN {
+    margin-top: 1%;
+    margin-bottom: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 13%;
+    background-color: rgb(154, 203, 86);
+    border-color: rgb(42, 71, 1);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+#userFormBTN {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(154, 203, 86);
+    border-color: rgb(42, 71, 1);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+
+#editUserForm {
+    float: right;
+    margin-right: 10%;
+    margin-bottom: 3%;
+    width: fit-content;
+    padding-top: 1%;
+    text-align: center;
+    padding: 2%;
+    background-color: rgb(117, 143, 107);
+    border: 3px solid rgb(42, 71, 1);
+
+}
+
+#imagen {
+    margin-right: 3%;
+}
+
+input {
+    border: 2px solid black;
+    float: right;
+}
+
+input#removeData {
+    border: none;
+    float: left;
+    margin-bottom: 2%;
+}
