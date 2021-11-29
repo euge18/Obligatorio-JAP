@@ -15,4 +15,14 @@ document.getElementById("loginFORM").addEventListener('submit', submitEvenHandle
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded",function(e) {
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); 
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail()); 
+        localStorage.setItem("user", profile.getEmail());
+        localStorage.setItem("photo", profile.getImageUrl());
+        location.href = "index.html";
+      }
 })
